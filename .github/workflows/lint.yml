@@ -1,0 +1,29 @@
+name: Linter
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      # Lint the README
+      - name: Lint README
+        uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          files: README.md
+
+      # Lint Go files
+      - uses: Jerome1337/golint-action@v1.0.2
+        with:
+          golint-path: './...'
+
+      # Check all files against the .editorconfig
+      - name: Check editorconfig
+        uses: editorconfig-checker/action-editorconfig-checker@v1.0.0
