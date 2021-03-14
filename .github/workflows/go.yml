@@ -25,6 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+
     - name: Golang Formatter
       uses: sladyn98/auto-go-format@master
       env:
