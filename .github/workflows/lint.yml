@@ -1,4 +1,4 @@
-name: Linter
+name: Lint
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  lint:
+  markdown:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -19,6 +19,32 @@ jobs:
         with:
           files: README.md
 
+  editorconfig:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
       # Check all files against the .editorconfig
       - name: Check editorconfig
         uses: editorconfig-checker/action-editorconfig-checker@v1.0.0
+
+  yaml:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Lint all .yml files
+      - uses: actions/checkout@v1
+      - name: yaml lint
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          strict: true
+          format: parsable
+          config_data: |
+            extends: default
+            rules:
+              line-length: disable
+              truthy:
+                check-keys: false
+                allowed-values:
+                  - "true"
+                  - "false"
