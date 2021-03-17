@@ -48,7 +48,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Lint Go files
-    - uses: Jerome1337/golint-action@v1.0.2
+      uses: Jerome1337/golint-action@v1.0.2
       with:
         golint-path: './...'
 
