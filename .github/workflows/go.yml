@@ -24,7 +24,7 @@ jobs:
       - name: Go Get Check
         uses: joshcarp/gogetcheck@v0.6.0
         with:
-          package: github.com/yuri-norwood/${{ env.GITHUB_REPOSITORY }}
+          package: github.com/${{ env.GITHUB_REPOSITORY }}
 
   vet:
     runs-on: ubuntu-latest
