@@ -19,11 +19,6 @@ jobs:
         with:
           files: README.md
 
-      # Lint Go files
-      - uses: Jerome1337/golint-action@v1.0.2
-        with:
-          golint-path: './...'
-
       # Check all files against the .editorconfig
       - name: Check editorconfig
         uses: editorconfig-checker/action-editorconfig-checker@v1.0.0
