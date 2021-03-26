@@ -1,0 +1,33 @@
+---
+
+main:
+  - "main.go"
+
+modules:
+  - "go.mod"
+  - "go.sum"
+  - "vendor/modules.txt"
+
+vendor:
+  - "vendor/**/*"
+
+bfk:
+  - "vendor/github.com/yuri-norwood/bfk"
+
+github:
+  - ".github/**/*"
+  - ".gitignore"
+  - "README.md"
+  - "LICENSE"
+
+code:
+  - "**/*.go"
+
+test:
+  - "**/*_test_.go"
+
+documentation:
+  - "README.md"
+  - "LICENSE"
+  - ".github/ISSUE_TEMPLATE/**/*"
+  - ".github/labeler.yml"
