@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Golang Formatter
-        uses: yuri-norwood/auto-go-format@main
+        uses: yuri-norwood/auto-go-format@0.0.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
