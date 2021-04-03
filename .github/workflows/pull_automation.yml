@@ -1,0 +1,33 @@
+---
+
+# This file defines automation actions
+name: Auto
+
+# Automate on all pull request events
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+# Define a job for each automatic task
+jobs:
+
+  # This job labels the PR based on the files modified
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@main
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          sync-labels: false
+
+  # This job assigns each PR to it's author
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: samspills/assign-pr-to-author@v1.0
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
